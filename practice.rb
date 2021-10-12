@@ -66,3 +66,22 @@ def gausu(a,b)
 end
 
 p gausu(40,4)
+
+# aは斜辺、bは底辺、cは側面
+def pitagorasu(a, b, c )
+  a = a**2
+  b = b**2
+  c = c**2
+  if a == 0
+    a = Math.sqrt(b + c)
+    puts "斜辺は#{a}"
+  elsif b == 0
+    b = Math.sqrt(a - c)
+    puts "底辺は#{b}"
+  else
+    c = Math.sqrt(a - b)
+    puts "側面は#{c}"
+  end
+end
+
+pitagorasu(10,5,0)
