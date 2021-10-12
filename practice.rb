@@ -1,10 +1,9 @@
-# # 1からaまでの数字でbの倍数または、bを含む数字の数
-# def array_with_a(a,b)
-#   array = (1..a).select { |number| number % b == 0 || number.to_s.include?("b")}
-#   p array
-#   p array.count
-# end
-# array_with_a(100,20)
+# 1からaまでの数字でbの倍数または、bを含む数字の数
+def array_with_a(a,b)
+  array = (1..a).select { |number| number % b == 0 || number.to_s.include?("#{b}")}
+  puts "#{a}までの数字の中で#{b}の倍数または、#{b}を含む数字は#{array.count}個です"
+end
+array_with_a(100,3)
 
 # # フィボナッチ数列
 # def fibo(a,b,c)
@@ -42,6 +41,7 @@
 
 # tori(0,0,1,10)
 
+# フィボナッは引数１または３、トリボナッチは引数４、テトラナッチは引数５で実行
 def fibo_tribo_tetra_by_max(max, *seq)
   seq = [0, 1] if seq.length < 2
   l = seq.length
@@ -49,7 +49,6 @@ def fibo_tribo_tetra_by_max(max, *seq)
     _next = seq[-l..-1].inject(:+)
     seq << _next
   end
-  p seq
   if l == 2
     puts "フィボナッチ数列の#{max}番目は#{seq[max-1]}です"
   elsif l == 3
@@ -61,7 +60,7 @@ end
 
 fibo_tribo_tetra_by_max 50,1,3,7
 
-# ４乗的ガウスの計算
+# n乗的ガウスの計算
 def gausu(a,b)
   (1..a).inject {|result, n| result + n**b }
 end
