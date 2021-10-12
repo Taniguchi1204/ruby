@@ -60,3 +60,10 @@ def fibo_tribo_tetra_by_max(max, *seq)
 end
 
 fibo_tribo_tetra_by_max 50,1,3,7
+
+# ４乗的ガウスの計算
+def gausu(a,b)
+  (1..a).inject {|result, n| result + n**b }
+end
+
+p gausu(40,4)
