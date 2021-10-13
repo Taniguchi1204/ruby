@@ -85,3 +85,23 @@ def pitagorasu(a, b, c )
 end
 
 pitagorasu(10,5,0)
+
+
+# nまでの逆数和でexpをこえないnの数字
+def reverse_number_to_exp(exp)
+  result = 0
+  count = 0
+  n = 1
+
+  loop do
+    result += 1.0 / n
+    n += 1
+    count += 1
+    break if result >= exp
+  end
+  p count
+  p result
+end
+
+reverse_number_to_exp(10)
+
