@@ -27,5 +27,28 @@ p (1..5).class #=> Rangeクラス
 
 p [*1..6] #=> [1, 2, 3, 4, 5, 6]
 
+def to_int(hex)
+  hex.scan(/\w\w/).map(&:hex)
+end
 
+p to_int('#12abcd')
 
+a = [1,2,3,5,6,7,8,7]
+b = [*1..7]
+
+p b - a
+
+a = ("1,2,3,4abc").scan(/\w/)
+p a
+
+a = Array.new(5){"dafault"}
+a[1].upcase!
+p a
+
+a = "abcde"
+p a[2]
+p a[1, 3]
+
+a = [[20,30],[40,50],[60,70]]
+area = a.map {|l, w| l * w}
+p area

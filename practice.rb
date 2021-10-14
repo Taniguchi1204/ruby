@@ -2,44 +2,9 @@
 def array_with_a(a,b)
   array = (1..a).select { |number| number % b == 0 || number.to_s.include?("#{b}")}
   puts "#{a}までの数字の中で#{b}の倍数または、#{b}を含む数字は#{array.count}個です"
+  puts array.sum
 end
-array_with_a(100,3)
-
-# # フィボナッチ数列
-# def fibo(a,b,c)
-#   array = []
-#   (0..(a-1)).each_with_index do |result, n|
-#     if n == 0 || n == 1
-#       result
-#     else
-#       result = array[n - 1] + array[n - 2]
-#     end
-#     array << result
-#   end
-#   p array[a-1]
-# end
-
-# fibo(10)
-
-# # トリボナッチ数列
-# def tori(a,b,c,d)
-#   array = []
-#   (0..(d-1)).each_with_index do |result, n|
-#     if n == 0
-#       result = a
-#     elsif n == 1
-#       result = b
-#     elsif n == 2
-#       result = c
-#     else
-#       result = array[n - 1] + array[n - 2] + array[n - 3]
-#     end
-#     array << result
-#   end
-#   p array
-# end
-
-# tori(0,0,1,10)
+array_with_a(20000,3)
 
 # フィボナッは引数１または３、トリボナッチは引数４、テトラナッチは引数５で実行
 def fibo_tribo_tetra_by_max(max, *seq)
@@ -65,7 +30,7 @@ def gausu(a,b)
   (1..a).inject {|result, n| result + n**b }
 end
 
-p gausu(40,4)
+p gausu(100,4)
 
 # aは斜辺、bは底辺、cは側面
 def pitagorasu(a, b, c )
@@ -103,5 +68,44 @@ def reverse_number_to_exp(exp)
   p result
 end
 
-reverse_number_to_exp(10)
+reverse_number_to_exp(9)
 
+
+def divisors(num, limit)
+  a = (1..limit).select{|n| num % n == 0}
+  puts "#{a.length}個"
+  puts "総和：#{a.sum}"
+end
+
+divisors(1234567890, 20000000)
+
+def ennsyuuritu
+  a = "14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859"
+  b =　a.scan(/\w/).map.with_index do |result, n|
+    if n == 0
+      a[n] + a[n+1]
+    else
+      a[n-1]+a[n]
+    end
+  end
+  c = b.group_by(&:itself).map{|key, value| [key, value.count]}.to_h
+end
+
+def pitagorasu2(a)
+  n = 3
+  b = 4
+  c = 5
+  count = 0
+  loop do
+    if n**2 + b**2 == c**2
+      count += 1
+    end
+    n += 1
+    b += 1
+    c += 1
+    break if c**2 >= a
+  end
+  p count
+end
+
+pitagorasu2(8000)
