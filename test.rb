@@ -11,4 +11,3 @@ def ennsyuuritu
   p c.max{ |x, y| x[1] <=> y[1] }
 end
 
-ennsyuuritu
