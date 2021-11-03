@@ -28,3 +28,28 @@ end
 buy_burger('cheese')
 buy_burger('cheese', drink: false, potato: true)
 buy_burger('cheese', drink: true, potato: false)
+
+# 擬似キーワード引数
+def buy_burger2(menu, options={})
+  drink = options[:drink]
+  potato = options[:potato]
+  puts "#{menu}ハンバーガーを購入"
+  if drink
+    puts 'ドリンクを購入'
+  end
+  if potato
+    puts 'ポテトを購入'
+  end
+end
+
+buy_burger2('cheese', drink: false, potato: true)
+
+# 想定外のキーワードはothers引数で受け取る
+def buy_burger3(menu, **others)
+  puts menu
+  puts others
+end
+
+buy_burger3('cheese', drink: 'drink', potato: 'potato')
+
+

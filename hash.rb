@@ -26,3 +26,19 @@ puts a == c
 
 # lengthやsizeでハッシュの個数を確認できる
 puts a.length
+
+# ハッシュのキーを配列で返す
+p currencies.keys
+
+# ハッシュの値を配列で返す
+p currencies.values
+
+# ハッシュに指定されたキーが存在するか確認する
+p currencies.has_key?(:japan)
+p currencies.has_key?("us")
+
+h = {us: 'dollar', india: 'rupee'}
+# ＊＊でハッシュ展開をする
+a = {japan: 'yen', **h}
+p a
+
