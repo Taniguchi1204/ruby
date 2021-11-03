@@ -42,3 +42,17 @@ h = {us: 'dollar', india: 'rupee'}
 a = {japan: 'yen', **h}
 p a
 
+# ハッシュから配列に変換
+c = currencies.to_a
+p c
+
+# 配列からハッシュに変換
+b = c.to_h
+p b
+
+# 文字列をシンボルに変換,シンボルを文字列に変換
+string = 'apple'
+symbol = :apple
+
+p string.to_sym == symbol
+p string == symbol.to_s
