@@ -1,19 +1,25 @@
 class User
-  attr_accessor :first, :last, :age
+  attr_accessor :name
 
-  def initialize(first, last ,age)
-    @first = first
-    @last  = last
-    @age  = age
+  def initialize(name)
+    @name = name
   end
 
-  def full_name
-    "#{@first} #{@last}"
+  def self.create_users(names)
+    names.map do |name|
+      User.new(name)
+    end
+  end
+
+  def hello
+    "Hello I am #{name}"
   end
 end
 
-user = User.new("Alice","Camel", 18)
-p user.full_name
-p user.first
-p user.last
-p user.age
+names = ["Alice", "Bob", "Carol"]
+
+users = User.create_users(names)
+
+users.each do |user|
+  puts user.hello
+end
